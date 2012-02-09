@@ -1,0 +1,15 @@
+.images li {
+    list-style-type: none;
+    margin-bottom: 2em;
+}
+
+.images img {
+    width: 600px;
+    padding: 10px;
+    border-radius: 4px;
+    background: #6CE;
+}
+
+.images h1 {
+    padding-left: 10px;
+}
