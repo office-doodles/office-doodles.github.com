@@ -1,3 +1,7 @@
+body {
+    padding-top: 60px;
+}
+
 .images li {
     list-style-type: none;
     margin-bottom: 2em;
