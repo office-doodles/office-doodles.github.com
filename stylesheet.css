@@ -5,6 +5,14 @@ body {
     clear: both;
 }
 
+.footer p {
+    font-size: 0.75em;
+    line-height: 1.2em;
+    margin-bottom: 0;
+}
+ul.images {
+    margin-left: 0px;
+}
 .navbar-inner {
     background: #ffcd5a;
 }
