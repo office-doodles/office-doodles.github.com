@@ -12,6 +12,13 @@ body {
     color: white;
     font-size: 2em;
 }
+.nav.pull-right {
+    color: white;
+    font-size: 1.5em;
+}
+.nav.pull-right .about a {
+    color: white;
+}
 
 .images > li {
     list-style-type: none;
@@ -29,7 +36,6 @@ body {
 }
 .images li .location {
     float: left;
-    margin-left: 10px;
 }
 .images li > img {
     width: 600px;

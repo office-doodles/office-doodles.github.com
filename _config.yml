@@ -1,6 +1,11 @@
 safe:        false
-auto:        false
+auto:        true
 server:      false
 server_port: 4000
 baseurl:    /
+title: Office-Doodles.com
 url: http://localhost:4000
+production_url: http://office-doodles.com
+author:
+    name: Crowd
+    email: contact@office-doodles.com
