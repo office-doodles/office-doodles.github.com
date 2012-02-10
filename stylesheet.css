@@ -1,19 +1,53 @@
 body {
     padding-top: 60px;
 }
-
-.images li {
-    list-style-type: none;
-    margin-bottom: 2em;
+.clear {
+    clear: both;
 }
 
-.images img {
+.navbar-inner {
+    background: #ffcd5a;
+}
+.navbar .nav a.nav-title {
+    color: white;
+    font-size: 2em;
+}
+
+.images > li {
+    list-style-type: none;
+    clear: left;
+    padding-bottom: 2em;
+}
+.images li .share {
+    float: left;
+    clear: left;
+    margin-left: 10px;
+}
+.images li .date {
+    float: left;
+    margin-left: 10px;
+}
+.images li .location {
+    float: left;
+    margin-left: 10px;
+}
+.images li > img {
     width: 600px;
     padding: 10px;
     border-radius: 4px;
     background: #6CE;
+
+    float: left;
+    clear: left;
+    margin-bottom: 1em;
 }
 
 .images h1 {
     padding-left: 10px;
 }
+.ribbon {
+    position: fixed;
+    right:0px;
+    top: 40px;
+}
+

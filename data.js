@@ -1,5 +1,7 @@
+---
+---
 var images = [
-    {slug: 'cubic-fish', title: 'Cubic Fish'},
-    {slug: 'poly-fish', title: 'Poly Fish'},
-    {slug: 'sad-friday', title: 'Sad Friday'}
-];
+    {% for post in site.posts %}{slug: '{{ post.slug }}', title: '{{ post.title }}', date: '{{ post.date | date_to_long_string }}'}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+]
+
