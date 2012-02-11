@@ -64,4 +64,5 @@ ul.images {
     right:0px;
     top: 40px;
 }
-
+/* will show comments after click */
+#disqus_thread {display: none;}
