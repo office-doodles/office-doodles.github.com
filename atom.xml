@@ -17,7 +17,7 @@ title : Atom Feed
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="{{ post.url }}"/>
+   <link href="{{ site.production_url }}{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>post-{{ post.slug }}</id>
    <content type="html">&lt;img src="{{ site.production_url }}/images/{{ post.slug }}.jpg" width="600px" /&gt;{{ post.content | xml_escape }}</content>
