@@ -1,6 +1,7 @@
 ---
+layout: nil
 ---
-var disqus_shortname = 'officedoodles';
+var disqus_shortname = '{{ site.disqus_shortname }}';
 var disqus_developer = 0;
 
 $('.images li').each(function() {

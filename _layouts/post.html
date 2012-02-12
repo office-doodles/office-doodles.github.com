@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-
+<script type="text/javascript">
+    var disqus_identifier = 'post-{{ page.slug }}';
+    var disqus_title = '{{ page.title }} at {{ site.title }}';
+</script>
 <ul class="images single">
     <li>
         {% include render_post.html %}

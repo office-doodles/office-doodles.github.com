@@ -1,7 +1,10 @@
+---
+layout: nil
+---
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Office-Doodles.com</title>
+        <title>{% if page.title %}{{ page.title }} — {% endif %}Office-Doodles.com</title>
         <meta charset="utf-8">
         <meta name="description" content="office doodles caricatures images">
         <meta name="author" content="Community">
@@ -85,9 +88,10 @@
         <!-- /Yandex.Metrika counter -->
 
         <!-- Disqus -->
-        <script src="http://officedoodles.disqus.com/embed.js" type="text/javascript" defer="defer" async="true"></script>
-        <script src="http://officedoodles.disqus.com/count.js" type="text/javascript" defer="defer" async="true"></script>
+        <script src="http://{{ site.disqus_shortname }}.disqus.com/embed.js" type="text/javascript" defer="defer" async="true"></script>
+        <script src="http://{{ site.disqus_shortname }}.disqus.com/count.js" type="text/javascript" defer="defer" async="true"></script>
         <!-- /Disqus -->
     </body>
 </html>
+
 

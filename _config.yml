@@ -10,3 +10,5 @@ production_url: http://office-doodles.com
 author:
     name: Crowd
     email: contact@office-doodles.com
+
+disqus_shortname: officedoodles
