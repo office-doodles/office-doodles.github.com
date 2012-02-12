@@ -1,4 +1,8 @@
 ---
 layout: default
 ---
-<ul class="images"></ul>
+<ul class="images">
+    {% for page in site.posts %}
+        <li>{% include render_post.html %}</li>
+    {% endfor %}
+</ul>

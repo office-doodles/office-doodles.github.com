@@ -1,4 +1,5 @@
 ---
+layout: post
 slug: cubic-fish
 title: Cubic Fish
 office: Moscow, Yandex

@@ -42,10 +42,14 @@ ul.images {
     float: left;
     margin-left: 10px;
 }
+.images li a.comments {
+    float: left;
+    margin-left: 10px;
+}
 .images li .location {
     float: left;
 }
-.images li > img {
+.images li .image {
     width: 600px;
     padding: 10px;
     border-radius: 4px;
@@ -64,5 +68,9 @@ ul.images {
     right:0px;
     top: 40px;
 }
-/* will show comments after click */
-#disqus_thread {display: none;}
+.single a.comments {
+    display: none;
+}
+#disqus_thread {
+    margin-left: 10px;
+}

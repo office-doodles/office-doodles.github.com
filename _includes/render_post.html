@@ -1,0 +1,15 @@
+<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+<span class="date">{{ page.date | date_to_long_string }}</span>
+{% if page.office %}
+    <span class="location">, taken at {{ page.office }}</span>
+{% endif %}
+
+{% if page.by %}
+    <span class="by">&nbsp;by {{ page.by }}</span>
+{% endif %}
+
+<a href="{{ page.url }}"><img class="image" src="/images/{{ page.slug }}.jpg" alt="{{ page.title }}" /></a>
+<a class="share"></a>
+<a class="comments" href="{{ page.url }}#disqus_thread" data-disqus-identifier="post-{{ page.slug }}">Comments</a>
+<div class="clear"></div>
+

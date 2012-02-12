@@ -1,4 +1,5 @@
 ---
+layout: post
 slug: sad-friday
 title: Sad Friday
 office: Moscow, Yandex
