@@ -10,7 +10,7 @@ $('.images li').each(function() {
     var url = li.find('h1 a')[0].href;
 
     // Share Button
-    addthis.button(li.find('a.share')[0], {}, {url: url, title: title + ' at ' + document.title});
+    addthis.button(li.find('a.share')[0], {}, {url: url, title: title + ' at {{ site.title }}'});
 
     li.waypoint(
         function() {
