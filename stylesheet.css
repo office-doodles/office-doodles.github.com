@@ -79,6 +79,12 @@ ul.images {
     margin-left: 10px;
 }
 
+.rss-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
 @media (max-width: 980px) {
     body {
         padding-top: 0px;
