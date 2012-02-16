@@ -3,6 +3,7 @@
 import sys
 import os
 import datetime
+import subprocess
 
 SETTINGS_FILE = '~/.office-doodles'
 
@@ -51,7 +52,11 @@ title: {title}
 office: {office}
 by: {taken_by}
 ---""".format(**locals()))
-        print '"{0}" written'.format(filename)
+
+    print '"{0}" written'.format(filename)
+    subprocess.call('git add ' + filename + ' images/' + slug + '.jpg', shell=True)
+    subprocess.call('git commit -m \'%s added.\'' % title, shell=True)
+    subprocess.call('git push', shell=True)
 
     write_settings(settings)
 
