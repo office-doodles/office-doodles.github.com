@@ -10,6 +10,7 @@ SETTINGS_FILE = '~/.office-doodles'
 DEFAULT_SETTINGS = dict(
     office='Moscow, Yandex',
     taken_by='Alexander Artemenko',
+    author='',
 )
 
 
@@ -42,6 +43,7 @@ def main():
     slug = raw_input('Slug [{0}]: '.format(slug)) or slug
     office = raw_input('Office [{office}]: '.format(**settings)) or settings['office']
     taken_by = raw_input('Taken by [{taken_by}]: '.format(**settings)) or settings['taken_by']
+    author = raw_input('Author [{author}]: '.format(**settings)) or settings['author']
 
     filename = os.path.join('_posts', today.strftime('%Y-%m-%d-') + slug + '.md' )
     with open(filename, 'w') as f:
@@ -51,6 +53,7 @@ slug: {slug}
 title: {title}
 office: {office}
 by: {taken_by}
+author: {author}
 ---""".format(**locals()))
 
     print '"{0}" written'.format(filename)
