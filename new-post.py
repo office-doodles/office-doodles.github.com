@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import sys
 import os
@@ -30,6 +30,7 @@ def write_settings(settings):
 
 
 def main():
+
     if len(sys.argv) != 2:
         print >> sys.stderr, 'Usage: %s "Image Title"' % sys.argv[0]
         sys.exit(1)
@@ -40,26 +41,48 @@ def main():
     slug = '-'.join(title.lower().split())
     today = datetime.date.today()
 
-    slug = raw_input('Slug [{0}]: '.format(slug)) or slug
-    office = raw_input('Office [{office}]: '.format(**settings)) or settings['office']
-    taken_by = raw_input('Taken by [{taken_by}]: '.format(**settings)) or settings['taken_by']
-    author = raw_input('Author [{author}]: '.format(**settings)) or settings['author']
+    slug = input('Slug [{0}]: '.format(slug)) or slug
 
-    filename = os.path.join('_posts', today.strftime('%Y-%m-%d-') + slug + '.md' )
+    image_filename = os.path.join('images', '%s.jpg' % slug)
+
+    if not os.path.isfile(image_filename):
+        print("Image %s not found!" % image_filename)
+        sys.exit(1)
+
+    office = input('Office [{office}]: '.format(**settings))
+    if not office:
+        office = settings['office']
+
+    taken_by = input('Taken by [{taken_by}]: '.format(**settings))
+    if not taken_by:
+        taken_by = settings['taken_by']
+
+    author = input('Author [{author}]: '.format(**settings))
+    if not author:
+        author = settings['author']
+
+    filename = os.path.join('_posts', '%s-%s.md' % (
+        today.strftime('%Y-%m-%d'),
+        slug
+    ))
+
     with open(filename, 'w') as f:
-        f.write("""---
-layout: post
-slug: {slug}
-title: {title}
-office: {office}
-by: {taken_by}
-author: {author}
----""".format(**locals()))
+        f.write('\n'.join([
+            "---",
+            "layout: post",
+            "slug: %s" % slug,
+            "title: %s" % title,
+            "office: %s" % office,
+            "by: %s" % taken_by,
+            "author: %s" % author,
+            "---"
+        ]))
 
-    print '"{0}" written'.format(filename)
-    subprocess.call('git add ' + filename + ' images/' + slug + '.jpg', shell=True)
-    subprocess.call('git commit -m \'%s added.\'' % title, shell=True)
-    subprocess.call('git push', shell=True)
+    print('"{0}" written'.format(filename))
+
+    subprocess.call(['git', 'add', filename, image_filename])
+    subprocess.call(['git', 'commit', '-m', '%s added.' % title])
+    subprocess.call(['git', 'push'])
 
     write_settings(settings)
 
