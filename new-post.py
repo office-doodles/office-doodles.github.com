@@ -18,7 +18,7 @@ def readline(prompt=None):
     if prompt is not None:
         sys.stdout.write(prompt)
         sys.stdout.flush()
-    return sys.stdout.readline().strip()
+    return sys.stdin.readline().strip()
 
 
 def read_settings():
