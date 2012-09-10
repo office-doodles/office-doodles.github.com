@@ -40,7 +40,7 @@ def write_settings(settings):
 def main():
 
     if len(sys.argv) != 2:
-        print >> sys.stderr, 'Usage: %s "Image Title"' % sys.argv[0]
+        sys.stderr.write('Usage: %s "Image Title"\n' % sys.argv[0])
         sys.exit(1)
 
     settings = read_settings()
