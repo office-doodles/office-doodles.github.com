@@ -3,6 +3,7 @@
 import sys
 import os
 import datetime
+import pipes
 import subprocess
 
 SETTINGS_FILE = '~/.office-doodles'
@@ -57,13 +58,9 @@ def main():
     ))
 
     if os.path.exists(filename):
-        print('Warning: there is a post named "%s" for today!' % slug)
+        print('Warning: there is a post named "%s" for today already!' % slug)
 
     image_filename = os.path.join('images', '%s.jpg' % slug)
-
-    if not os.path.isfile(image_filename):
-        print("Image %s not found!" % image_filename)
-        sys.exit(1)
 
     office = readline('Office [{office}]: '.format(**settings))
     if not office:
@@ -87,11 +84,24 @@ by: {taken_by}
 author: {author}
 ---""".format(**locals()))
 
-    print('"{0}" written'.format(filename))
+    print('\n"{0}" written'.format(filename))
 
-    subprocess.call(['git', 'add', filename, image_filename])
-    subprocess.call(['git', 'commit', '-m', '%s added.' % title])
-    subprocess.call(['git', 'push'])
+    commands = [
+        ['git', 'add', filename, image_filename],
+        ['git', 'commit', '-m', '%s added.' % title],
+        ['git', 'push'],
+    ]
+
+    if os.path.isfile(image_filename):
+        for command in commands:
+            subprocess.call(command)
+    else:
+        print("\nImage %s not found! Post would not be added.\n"
+              "You should add image and commit the post by "
+              "hand:\n" % image_filename)
+        for command in commands:
+            print(' '.join(pipes.quote(i) for i in command))
+        print("")
 
     write_settings(settings)
 
