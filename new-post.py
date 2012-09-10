@@ -14,6 +14,13 @@ DEFAULT_SETTINGS = dict(
 )
 
 
+def readline(prompt=None):
+    if prompt is not None:
+        sys.stdout.write(prompt)
+        sys.stdout.flush()
+    return sys.stdout.readline().strip()
+
+
 def read_settings():
     filename = os.path.expanduser(SETTINGS_FILE)
     if os.path.exists(filename):
@@ -23,6 +30,7 @@ def read_settings():
                 for line in f.readlines()
             )
     return DEFAULT_SETTINGS
+
 
 def write_settings(settings):
     with open(os.path.expanduser(SETTINGS_FILE), 'w') as f:
@@ -41,7 +49,7 @@ def main():
     slug = '-'.join(title.lower().split())
     today = datetime.date.today()
 
-    slug = input('Slug [{0}]: '.format(slug)) or slug
+    slug = readline('Slug [{0}]: '.format(slug)) or slug
 
     image_filename = os.path.join('images', '%s.jpg' % slug)
 
@@ -49,15 +57,15 @@ def main():
         print("Image %s not found!" % image_filename)
         sys.exit(1)
 
-    office = input('Office [{office}]: '.format(**settings))
+    office = readline('Office [{office}]: '.format(**settings))
     if not office:
         office = settings['office']
 
-    taken_by = input('Taken by [{taken_by}]: '.format(**settings))
+    taken_by = readline('Taken by [{taken_by}]: '.format(**settings))
     if not taken_by:
         taken_by = settings['taken_by']
 
-    author = input('Author [{author}]: '.format(**settings))
+    author = readline('Author [{author}]: '.format(**settings))
     if not author:
         author = settings['author']
 
